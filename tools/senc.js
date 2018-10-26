@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 
 // if development, read the env stuff from .env
 if( !process.env.NODE_ENV || process.env.NODE_ENV == 'development') {
-  console.log('.env file: ' , dotenv.config());
+  dotenv.config();
 }
 // my key should exist. if not default key will be used - not recommended
 if( ! process.env.MY_ENCRYPTION_KEY) {

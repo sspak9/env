@@ -1,6 +1,13 @@
 const crypto = require('crypto');
+const dotenv = require('dotenv');
 
+if( !process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
+  dotenv.config();
+}
+
+// global encKey
 var encKey = process.env.MY_ENCRYPTION_KEY ;
+
 if( !encKey ) { // is null
   encKey = 'bcvr8yK8tBr0DIC06xCvOc9c04gY4Nzx';
   console.log('*** MY_ENCRYPTION_KEY is not set. Using default key...not recommended');
@@ -48,7 +55,7 @@ function decrypt(ivText, text) {
 }
 
 function encryptString(text) {
-  var encText = encrypt(text);
+  let encText = encrypt(text);
   if( encText.text) {
     return 'ENC(' + encText.text + encText.iv + ')';
   }
@@ -62,11 +69,11 @@ function decryptString(text) {
   // the iv is at last 24
   if( text && text.startsWith('ENC')) {
 
-    var nop = text.replace('ENC(', '').replace(')', '');
+    let nop = text.replace('ENC(', '').replace(')', '');
     
     if( nop.length > 24) {
-      var ivText = nop.substring(24);
-      var encText = nop.substring(0 , nop.length - 24);
+      let ivText = nop.substring(24);
+      let encText = nop.substring(0 , nop.length - 24);
       
       return decrypt(ivText, encText);
     }

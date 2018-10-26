@@ -1,8 +1,8 @@
 
-const fdec = require('./tools/fdec');
+const fdec = require('./tools/fd');
 
-// try with false for auto decrypt 
-if(!fdec.readEncConfig(false)) {
+// auto decrypt 
+if(!fdec.readEncConfig(true)) {
   console.log('something went wrong with decryption');
 }
 

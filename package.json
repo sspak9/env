@@ -8,14 +8,14 @@
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
+    "debug": "^4.1.0",
     "dotenv": "^6.1.0",
-    "express": "~4.15.5",
+    "express": "^4.16.4",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
-    "nodemon": "^1.18.4"
+    "nodemon": "^1.18.7"
   }
 }
